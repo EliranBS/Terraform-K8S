@@ -2,6 +2,6 @@
 resource "kubernetes_namespace" "nginx_namespace" {
 
   metadata {
-    name = "nginx"
+    name = var.namespace_name
   }
 }

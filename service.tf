@@ -12,9 +12,9 @@ resource "kubernetes_service" "nginx-service" {
     }
 
     port {
-      port        = 8080
-      target_port = 80
-      node_port   = 31211
+      port        = var.service_port
+      target_port = var.container_port
+      node_port   = var.service_node_port
     }
 
     type = "NodePort"
