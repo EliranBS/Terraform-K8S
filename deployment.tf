@@ -10,7 +10,7 @@ resource "kubernetes_deployment" "nginx-deployment" {
   }
 
   spec {
-    replicas = 1
+    replicas = var.replicas
 
     selector {
       match_labels = {
@@ -30,6 +30,10 @@ resource "kubernetes_deployment" "nginx-deployment" {
           # the image variable in variables.tf file
           image = var.image
           name  = "nginx"
+
+          port {
+            container_port = var.container_port
+          }
         }
       }
     }
